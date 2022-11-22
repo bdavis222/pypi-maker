@@ -1,3 +1,22 @@
+Metadata-Version: 2.1
+Name: pypimaker
+Version: 0.1.1
+Summary: Software designed for simplifying PyPI Python package setups
+Home-page: https://github.com/bdavis222/pypimaker
+Author: Brian Davis
+Project-URL: Bug Reports, https://github.com/bdavis222/pypimaker/issues
+Project-URL: Funding, https://www.paypal.com/donate/?business=UA5NL9MJSFMVY
+Project-URL: Source, https://github.com/bdavis222/
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Requires-Python: >=3.7, <4
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
 # PyPI Maker
 > Software designed for simplifying PyPI Python package setups
 
@@ -75,21 +94,6 @@ pypimaker reset
 ## Making changes to your PyPI project
 
 To make changes and update your project, simply re-run `pypimaker upload`. Follow the steps in the terminal to incremement your version number and your update will be pushed to PyPI.
-
-## Authors
-
-Brian Davis
-
-## Release History
-
-* 0.1.1
-	 * Bug fixes
-* 0.1.0
-	 * Initial Release
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](https://github.com/bdavis222/pypimaker/blob/main/LICENSE) file for details.
 
 ## Development
 
