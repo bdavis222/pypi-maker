@@ -62,7 +62,7 @@ You will be asked to enter your PyPI username and password (which you've registe
 pip install <PROJECT_NAME>
 ```
 
-*(Here, <PROJECT_NAME> is the name you selected when running `generatefiles.py`)*
+*(Here, <PROJECT_NAME> is the name you selected when running `pypimaker generate`)*
 
 ## Resetting Your Project
 
