@@ -22,6 +22,10 @@ def checkForRequiredFiles(filepath):
         if file not in topLevelDirectoryFiles:
             print(f"{file} not yet created. Run generatefiles.py first!")
             quit()
+    
+    if "build" in topLevelDirectoryFiles or "dist" in topLevelDirectoryFiles:
+        print("Top-level folders cannot be named 'build' or 'dist'. Please change folder names.")
+        quit()
 
 def checkWheelInstallation():
     try:
