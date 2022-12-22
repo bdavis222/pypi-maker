@@ -13,6 +13,7 @@ def upload(filepath):
 
     createDistributionFiles(filepath)
     uploadDistributionFiles(filepath)
+    removeDistributionFiles(filepath)
 
 def checkForRequiredFiles(filepath):
     requiredFiles = ["LICENSE", "README.md", "requirements.txt", "setup.py"]
@@ -203,3 +204,13 @@ def uploadDistributionFiles(filepath):
 
     commandArray = ["twine", "upload", distPath + "/*"]
     subprocess.call(commandArray)
+
+def removeDistributionFiles(filepath):
+    foldersToRemove = ["build", "dist"]
+    for item in os.listdir(filepath):
+        if item.endswith("egg-info"):
+            foldersToRemove.append(item)
+    
+    for folder in foldersToRemove:
+        commandArray = ["rm", "-r", filepath + "/" + folder]
+        subprocess.run(commandArray, capture_output=True)
