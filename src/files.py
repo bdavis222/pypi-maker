@@ -1,11 +1,15 @@
 import datetime
-import os 
-import subprocess 
+import os
+import subprocess
+from src.ui.DialogWindow import ActionDialogWindow
 
 DEFAULT_INITIAL_VERSION = "0.1.0"
+UNIT_TEST_CREATION_PROMPT_TEXT = 'Create template unit test files?\nThese will be placed in a \n\
+"tests" folder in your project.'
 
 def generate(filepath, projectName, authorsArray, emailsArray, correspondingEmail, githubUsername,
 	shortDescription, classifier):
+	checkForUnitTests(filepath)
 	generateRequirementsFile(filepath)
 	generateGitIgnoreFile(filepath)
 	generateLicenseFile(filepath, authorsArray)
@@ -14,6 +18,67 @@ def generate(filepath, projectName, authorsArray, emailsArray, correspondingEmai
 	generateInitFiles(filepath)
 	generateSetupFile(filepath, authorsArray, correspondingEmail, githubUsername, projectName, 
 		shortDescription, classifier)
+
+def checkForUnitTests(filepath):
+	if "tests" not in os.listdir(filepath):
+		dialogWindow = ActionDialogWindow("No unit tests found", UNIT_TEST_CREATION_PROMPT_TEXT, 
+			positiveAction=lambda: createUnitTestTemplates(filepath))
+
+def createUnitTestTemplates(filepath):
+	pythonFileFilepaths = []
+	appendPythonFileFilepathsToList(filepath, pythonFileFilepaths)
+	newPaths = createNewPaths(filepath, pythonFileFilepaths)
+	importStrings = createImportStrings(filepath, pythonFileFilepaths)
+	createTestFiles(filepath, newPaths, importStrings)
+
+def appendPythonFileFilepathsToList(filepath, pythonFileFilepaths):
+	contents = os.listdir(filepath)
+	for item in contents:
+		if item.startswith(".") or item.startswith("__") or item == "setup.py":
+			continue
+		
+		extension = item.split(".")[-1]
+		if extension == "py":
+			pythonFileFilepaths.append(filepath + "/" + item)
+		
+		itemPath = filepath + "/" + item
+		if os.path.isdir(itemPath):
+			appendPythonFileFilepathsToList(itemPath, pythonFileFilepaths)
+
+def createImportStrings(filepath, pythonFileFilepaths):
+	startingIndex = len(filepath.split("/"))
+	importStrings = []
+	for path in pythonFileFilepaths:
+		pathWithoutExtension = path.split(".")[0]
+		importStringPath = ".".join(pathWithoutExtension.split("/")[startingIndex:])
+		filename = importStringPath.split(".")[-1]
+		importString = f"import {importStringPath} as {filename}"
+		importStrings.append(importString)
+	return importStrings
+
+def createNewPaths(filepath, pythonFileFilepaths):
+	startingIndex = len(filepath.split("/"))
+	newPaths = []
+	for path in pythonFileFilepaths:
+		pathArray = path.split("/")
+		pathArray[startingIndex] = "tests"
+		newPaths.append("/".join(pathArray))
+	return newPaths
+
+def createTestFiles(filepath, newPaths, importStrings):
+	startingIndex = len(filepath.split("/"))
+	for path, importString in zip(newPaths, importStrings):
+		directory = "/".join(path.split("/")[:-1])
+		moduleName = path.split("/")[-1].split(".")[0].capitalize()
+		contents = f"import unittest\n{importString}\n\n# This unit test uses Python's built-in \
+unit testing framework\n# See https://docs.python.org/3/library/unittest.html for more information\
+\n\nclass Test{moduleName}(unittest.TestCase):\n    def test_condition_doesThis_whenThis(self):\
+\n        pass\n\nif __name__ == '__main__':\n    unittest.main()\n"
+
+		subprocess.call(["mkdir", "-p", directory])
+		
+		with open(path, "w") as file:
+			file.write(contents)
 
 def generateRequirementsFile(filepath):
 	checkPipreqsInstallation()
