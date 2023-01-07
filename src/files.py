@@ -137,7 +137,10 @@ SOFTWARE.'
 		file.write(output)
 
 def getAuthorNamesInline(authorsArray):
-	if len(authorsArray) == 1:
+	if not len(authorsArray):
+		return ""
+	
+	elif len(authorsArray) == 1:
 		return authorsArray[0]
 	
 	elif len(authorsArray) == 2:
