@@ -7,7 +7,7 @@ long_description = (here / 'README.md').read_text(encoding='utf-8')
 
 setup(
 	name='pypimaker', # Required
-    version='0.1.4', # Required 
+    version='0.1.5', # Required 
     description='Software designed for simplifying PyPI Python package setups',
 	long_description=long_description,
 	long_description_content_type='text/markdown',
