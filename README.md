@@ -87,7 +87,7 @@ Tests for PyPI Maker use [Python's built-in unittest framework](https://docs.pyt
 python -m unittest
 ```
 
-The same test framework can optionally be added to your own project: If there is not yet a folder named `tests` in the top level of your project's directory structure, then a dialog window will pop up asking if you would like to include template unit tests in your project when running `pypimaker generate`. Confirming this selection will create a `test` folder with individual unit tests inside, corresponding to each of the Python files in your project. Of course, until writing test cases within each of these test files, they won't actually test anything.
+The same test framework can optionally be added to your own project: If there is not yet a folder named `tests` in the top level of your project's directory structure, then a dialog window will pop up asking if you would like to include template unit tests in your project when running `pypimaker generate`. Confirming this selection will create a `tests` folder with individual unit tests inside, corresponding to each of the Python files in your project. Of course, until writing test cases within each of these test files, they won't actually test anything.
 
 ### Bug Reports and Feature Requests
 
