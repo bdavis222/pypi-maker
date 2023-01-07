@@ -84,7 +84,7 @@ Brian Davis
 
 ## Release History
 
-* 0.1.5
+* 0.1.6
 	 * Bug fixes
 * 0.1.0
 	 * Initial Release
@@ -97,11 +97,13 @@ This project is licensed under the MIT License. See the [LICENSE](https://github
 
 ### Testing
 
-Tests for this template project use [Python's built-in unittest framework](https://docs.python.org/3/library/unittest.html), and are stored in the `tests` folder. To run tests, navigate to the top level of the project's folder structure and run the following command:
+Tests for PyPI Maker use [Python's built-in unittest framework](https://docs.python.org/3/library/unittest.html), and are stored in the `tests` folder. To run tests, navigate to the top level of PyPI Maker's folder structure and run the following command:
 
 ```
 python -m unittest
 ```
+
+The same test framework can optionally be added to your own project: If there is not yet a folder named `tests` in the top level of your project's directory structure, then a dialog window will pop up asking if you would like to include template unit tests in your project when running `pypimaker generate`. Confirming this selection will create a `test` folder with individual unit tests inside, corresponding to each of the Python files in your project. Of course, until writing test cases within each of these test files, they won't actually test anything.
 
 ### Bug Reports and Feature Requests
 
