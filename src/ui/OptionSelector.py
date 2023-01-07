@@ -11,6 +11,8 @@ PROJECT_DESCRIPTION_TEXT = 'One-sentence Project Description (e.g., "Software de
 PROJECT_FOLDER_NOT_CHOSEN_TEXT = "You must select your project \nusing the Browse button."
 PROJECT_NAME_NOT_CHOSEN_TEXT = "Project Name is a required field.\nUse folder name as project name?"
 SELECT_FOLDER_TEXT = "Select the top-level folder containing your Python project"
+PROJECT_NAME_DESCRIPTION_TEXT = '(Your package will be installed with the "pip install \
+project_name" command using the project name given above.)'
 
 class OptionSelector:
 	def __init__(self):
@@ -71,6 +73,8 @@ class OptionSelector:
 		labelProjectName.pack(in_=frameProjectName, side=tk.LEFT)
 		self.entryProjectName.pack(in_=frameProjectName, side=tk.LEFT)
 		
+		labelProjectNameDescription = tk.Label(self.window, text=PROJECT_NAME_DESCRIPTION_TEXT, font=("Helvetica 9", 10))
+		
 		frameGithubUsername = tk.Frame(self.window)
 		labelGithubUsername = tk.Label(self.window, text="Project GitHub Username:")
 		self.entryGithubUsername = tk.Entry(self.window, width=25)
@@ -89,6 +93,7 @@ class OptionSelector:
 		filepathFrame.pack()
 		navigation.pack()
 		frameProjectName.pack()
+		labelProjectNameDescription.pack()
 		frameGithubUsername.pack()
 		labelProjectDescription.pack()
 		self.entryProjectDescription.pack()
