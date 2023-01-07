@@ -32,22 +32,6 @@ This will launch a graphical user interface that looks like the following:
 
 Inputting the information for your project will generate all of the files needed for uploading it to PyPI (`LICENSE`, `README.me`, `requirements.txt`, and `setup.py`). This can be re-run at any time to re-generate these files.
 
-## Reorganizing Files
-
-For those who tend to pile a bunch of Python files into the same directory, a utility is included for helping users reorganize their files. After moving your files into an organized folder structure, run the following command:
-
-```
-pypimaker fix
-```
-
-**Important: For this to work properly, your folders must not be named the same as any of your files.**
-
-This will fix all of your imports so that they will work with the new structure you've created. If this causes any errors, it can be reverted at any time with the following command:
-
-```
-pypimaker unfix
-```
-
 ## Uploading Your Finished Project to PyPI
 
 If you don't yet have an account on PyPI, [register for one](https://pypi.org/account/register/). Once you've set up your account and you're ready to upload your package to PyPI (e.g., after you have updated the generated template `README.md` file to your liking), run the following command:
