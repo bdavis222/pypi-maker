@@ -1,5 +1,5 @@
 import unittest
-import src.files as files
+import pypimaker.files as files
 
 # This unit test uses Python's built-in unit testing framework
 # See https://docs.python.org/3/library/unittest.html for more information

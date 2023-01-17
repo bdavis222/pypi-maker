@@ -1,6 +1,6 @@
 import os
 import tkinter as tk
-from src.ui.DialogWindow import ActionDialogWindow, InfoDialogWindow
+from pypimaker.ui.DialogWindow import ActionDialogWindow, InfoDialogWindow
 
 MISSING_AUTHOR_NAMES_TEXT = "Some emails have missing author names.\nPlease fix and resubmit."
 MISSING_FIRST_NAME_TEXT = "Corresponding author name not given.\nSubmit with no authors?"

@@ -1,5 +1,5 @@
 import unittest
-import src.upload as upload
+import pypimaker.upload as upload
 
 # This unit test uses Python's built-in unit testing framework
 # See https://docs.python.org/3/library/unittest.html for more information

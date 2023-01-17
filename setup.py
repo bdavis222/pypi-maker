@@ -7,7 +7,7 @@ long_description = (here / 'README.md').read_text(encoding='utf-8')
 
 setup(
 	name='pypimaker', # Required
-    version='0.1.9', # Required 
+    version='0.1.10', # Required 
     description='Software designed for simplifying PyPI Python package setups',
 	long_description=long_description,
 	long_description_content_type='text/markdown',
@@ -22,7 +22,7 @@ setup(
 		'Operating System :: Microsoft :: Windows'
 	],
 	packages=find_packages(), # Required
-	py_modules=['tests', 'src.ui', 'src'], # Generated
+	py_modules=['tests', 'pypimaker.ui', 'pypimaker'], # Generated
 	python_requires='>=3.7, <4', 
 	project_urls={
 		'Bug Reports': 'https://github.com/bdavis222/pypimaker/issues',
@@ -31,7 +31,7 @@ setup(
 	},
 	entry_points={
 		'console_scripts': [
-			'pypimaker = src.__main__:main'
+			'pypimaker = pypimaker.__main__:main'
 		]
 	}
 )

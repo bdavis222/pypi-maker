@@ -1,7 +1,7 @@
 import datetime
 import os
 import subprocess
-from src.ui.DialogWindow import DialogWindow
+from pypimaker.ui.DialogWindow import DialogWindow
 
 DEFAULT_INITIAL_VERSION = "0.1.0"
 UNIT_TEST_CREATION_PROMPT_TEXT = 'Create template unit test files?\nThese will be placed in a \

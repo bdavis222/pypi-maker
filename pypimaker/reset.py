@@ -1,6 +1,6 @@
 import os
 import subprocess
-from src.ui.DialogWindow import ActionDialogWindow
+from pypimaker.ui.DialogWindow import ActionDialogWindow
 
 RESET_SELECTION_TEXT = "This will remove generated files.\nAre you sure you want to reset?"
 

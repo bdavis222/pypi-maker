@@ -1,10 +1,10 @@
 import argparse
 import sys
-import src.files as files
-import src.reset as reset
-import src.upload as upload
-from src.ui import navigation
-from src.ui.OptionSelector import OptionSelector
+import pypimaker.files as files
+import pypimaker.reset as reset
+import pypimaker.upload as upload
+from pypimaker.ui import navigation
+from pypimaker.ui.OptionSelector import OptionSelector
 
 INVALID_ARGUMENT_TEXT = "Invalid argument given. Must be 'generate', 'upload', 'reset', \
 'fiximports', 'unfiximports', or 'help'."

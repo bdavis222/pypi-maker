@@ -1,9 +1,9 @@
 import os
 import tkinter as tk
 from tkinter import filedialog
-import src.ui.navigation as navigation
-from src.ui.AuthorInfoSelector import AuthorInfoSelector
-from src.ui.DialogWindow import ActionDialogWindow, InfoDialogWindow
+import pypimaker.ui.navigation as navigation
+from pypimaker.ui.AuthorInfoSelector import AuthorInfoSelector
+from pypimaker.ui.DialogWindow import ActionDialogWindow, InfoDialogWindow
 
 MISMATCHED_SELECTION_TEXT = "Mismatched folder name and project name.\nAre you sure you selected correctly?"
 NO_PYTHON_FILES_IN_PROJECT_FOLDER_TEXT = "No Python files found in folder.\nSelect a different folder."

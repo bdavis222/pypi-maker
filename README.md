@@ -68,7 +68,7 @@ Brian Davis
 
 ## Release History
 
-* 0.1.9
+* 0.1.10
 	 * Bug fixes
 * 0.1.0
 	 * Initial Release
