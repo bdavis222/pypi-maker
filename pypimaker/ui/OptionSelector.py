@@ -1,18 +1,10 @@
 import os
 import tkinter as tk
 from tkinter import filedialog
+from pypimaker import strings
 import pypimaker.ui.navigation as navigation
 from pypimaker.ui.AuthorInfoSelector import AuthorInfoSelector
 from pypimaker.ui.DialogWindow import ActionDialogWindow, InfoDialogWindow
-
-MISMATCHED_SELECTION_TEXT = "Mismatched folder name and project name.\nAre you sure you selected correctly?"
-NO_PYTHON_FILES_IN_PROJECT_FOLDER_TEXT = "No Python files found in folder.\nSelect a different folder."
-PROJECT_DESCRIPTION_TEXT = 'One-sentence Project Description (e.g., "Software designed for..."):'
-PROJECT_FOLDER_NOT_CHOSEN_TEXT = "You must select your project \nusing the Browse button."
-PROJECT_NAME_NOT_CHOSEN_TEXT = "Project Name is a required field.\nUse folder name as project name?"
-SELECT_FOLDER_TEXT = "Select the top-level folder containing your Python project"
-PROJECT_NAME_DESCRIPTION_TEXT = '(Your package will be installed with the "pip install \
-project_name" command using the project name given above.)'
 
 class OptionSelector:
 	def __init__(self):
@@ -30,27 +22,11 @@ class OptionSelector:
 		self.githubUsername = ""
 		self.shortDescription = ""
 		self.intendedAudience = ""
-		self.intendedAudiences = [
-			"N/A",
-			"Customer Service",
-			"Developers",
-			"Education",
-			"End Users/Desktop",
-			"Financial and Insurance Industry",
-			"Healthcare Industry",
-			"Information Technology",
-			"Legal Industry",
-			"Manufacturing",
-			"Other Audience",
-			"Religion",
-			"Science/Research",
-			"System Administrators",
-			"Telecommunications Industry"
-		]
+		self.intendedAudiences = strings.INTENDED_AUDIENCES_LIST
 		self.classifiers = False
 		
 		filepathFrame = tk.Frame(self.window)
-		self.labelSelectedPath = tk.Label(self.window, text=SELECT_FOLDER_TEXT, fg="red", 
+		self.labelSelectedPath = tk.Label(self.window, text=strings.SELECT_FOLDER_TEXT, fg="red", 
 			bg="white")
 		buttonSelectFolder = tk.Button(self.window, text="Browse...", 
 			command=self.browseFolders)
@@ -73,7 +49,11 @@ class OptionSelector:
 		labelProjectName.pack(in_=frameProjectName, side=tk.LEFT)
 		self.entryProjectName.pack(in_=frameProjectName, side=tk.LEFT)
 		
-		labelProjectNameDescription = tk.Label(self.window, text=PROJECT_NAME_DESCRIPTION_TEXT, font=("Helvetica 9", 10))
+		labelProjectNameDescription = tk.Label(
+			self.window,
+			text=strings.PROJECT_NAME_DESCRIPTION_TEXT,
+			font=("Helvetica 9", 10)
+		)
 		
 		frameGithubUsername = tk.Frame(self.window)
 		labelGithubUsername = tk.Label(self.window, text="Project GitHub Username:")
@@ -81,7 +61,7 @@ class OptionSelector:
 		labelGithubUsername.pack(in_=frameGithubUsername, side=tk.LEFT)
 		self.entryGithubUsername.pack(in_=frameGithubUsername, side=tk.LEFT)
 		
-		labelProjectDescription = tk.Label(self.window, text=PROJECT_DESCRIPTION_TEXT)
+		labelProjectDescription = tk.Label(self.window, text=strings.PROJECT_DESCRIPTION_TEXT)
 		self.entryProjectDescription = tk.Entry(self.window, width=50)
 		
 		self.includeAuthorNames = tk.BooleanVar(value=True)
@@ -106,10 +86,16 @@ class OptionSelector:
 		self.window.mainloop()
 
 	def browseFolders(self):
-		chosenFolder = filedialog.askdirectory(initialdir=self.filepath, title=SELECT_FOLDER_TEXT)
+		chosenFolder = filedialog.askdirectory(
+			initialdir=self.filepath,
+			title=strings.SELECT_FOLDER_TEXT
+		)
 		if chosenFolder not in ["", " ", "/"]:
 			if not navigation.hasPyFiles(chosenFolder):
-				InfoDialogWindow("No Python files found", NO_PYTHON_FILES_IN_PROJECT_FOLDER_TEXT)
+				InfoDialogWindow(
+					"No Python files found",
+					strings.NO_PYTHON_FILES_IN_PROJECT_FOLDER_TEXT
+				)
 				return
 			self.filepath = chosenFolder
 		else:
@@ -119,18 +105,18 @@ class OptionSelector:
 	
 	def checkDone(self):
 		if self.filepath in ["", " ", "/"]:
-			InfoDialogWindow("Missing info", PROJECT_FOLDER_NOT_CHOSEN_TEXT)
+			InfoDialogWindow("Missing info", strings.PROJECT_FOLDER_NOT_CHOSEN_TEXT)
 			return
 		
 		self.projectName = self.entryProjectName.get()
 		if self.projectName == "":
-			ActionDialogWindow("Missing info", PROJECT_NAME_NOT_CHOSEN_TEXT, 
+			ActionDialogWindow("Missing info", strings.PROJECT_NAME_NOT_CHOSEN_TEXT, 
 				positiveAction=self.finishWithFolderNameAsProjectName)
 			return
 		
 		chosenFolder = self.filepath.split("/")[-1]
 		if chosenFolder != self.projectName:
-			ActionDialogWindow("Check your selection", MISMATCHED_SELECTION_TEXT, 
+			ActionDialogWindow("Check your selection", strings.MISMATCHED_SELECTION_TEXT, 
 				positiveAction=self.done)
 			return
 		
@@ -168,7 +154,7 @@ class OptionSelector:
 	
 	def showFilepath(self):
 		if self.filepath in ["", " ", "/"]:
-			self.labelSelectedPath.configure(text=SELECT_FOLDER_TEXT, fg="red", bg="white")
+			self.labelSelectedPath.configure(text=strings.SELECT_FOLDER_TEXT, fg="red", bg="white")
 		else:
 			displayedFilepath = self.filepath
 			if len(displayedFilepath) > 50:
