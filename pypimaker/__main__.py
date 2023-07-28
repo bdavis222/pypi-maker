@@ -27,7 +27,8 @@ def main(argv=sys.argv):
 			options.correspondingEmail,
 			options.githubUsername,
 			options.shortDescription,
-			options.classifier
+			options.classifier,
+			options.mainFunctionPath
 		)
 	
 	elif userOption in ["upload", "-u"]:

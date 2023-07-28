@@ -4,7 +4,7 @@ from tkinter import filedialog
 from pypimaker import strings
 import pypimaker.ui.navigation as navigation
 from pypimaker.ui.AuthorInfoSelector import AuthorInfoSelector
-from pypimaker.ui.DialogWindow import ActionDialogWindow, InfoDialogWindow
+from pypimaker.ui.DialogWindow import ActionDialogWindow, DialogWindow, InfoDialogWindow
 
 class OptionSelector:
 	def __init__(self):
@@ -24,6 +24,7 @@ class OptionSelector:
 		self.intendedAudience = ""
 		self.intendedAudiences = strings.INTENDED_AUDIENCES_LIST
 		self.classifiers = False
+		self.mainFunctionPath = strings.DEFAULT_MAIN_FUNCTION_PATH
 		
 		filepathFrame = tk.Frame(self.window)
 		self.labelSelectedPath = tk.Label(self.window, text=strings.SELECT_FOLDER_TEXT, fg="red", 
@@ -109,11 +110,17 @@ class OptionSelector:
 			return
 		
 		if not navigation.hasMainFunctionInSrc(self.filepath):
-			InfoDialogWindow(
-				"Invalid project structure",
-				strings.NO_MAIN_FUNCTION_IN_SRC_FOLDER_TEXT
+			DialogWindow(
+				strings.NO_MAIN_FUNCTION_TITLE,
+				strings.MUST_SELECT_MAIN_FILE,
+				positiveButtonText="Choose",
+				negativeButtonText="Quit",
+				negativeButtonAction=quit,
+				negativeButtonColor="red"
 			)
-			return
+			self.mainFunctionPath = self.getMainFunctionPath()
+			if self.mainFunctionPath == strings.DEFAULT_MAIN_FUNCTION_PATH:
+				return
 		
 		self.projectName = self.entryProjectName.get()
 		if self.projectName == "":
@@ -157,6 +164,28 @@ class OptionSelector:
 		chosenFolder = self.filepath.split("/")[-1]
 		self.projectName = chosenFolder
 		self.done()
+	
+	def getMainFunctionPath(self):
+		chosenFile = filedialog.askopenfilename(
+			initialdir=self.filepath, 
+			title='Select the file containing your "main" function'
+		)
+		
+		if not navigation.mainFunctionIn(chosenFile):
+			InfoDialogWindow(
+				strings.NO_MAIN_FUNCTION_TITLE,
+				strings.NO_MAIN_FOUND_AFTER_SELECTION_TEXT
+			)
+			return string.DEFAULT_MAIN_FUNCTION_PATH
+		
+		else:
+			mainFunctionPath = navigation.getPathFromBase(base=self.filepath, target=chosenFile)
+			if mainFunctionPath == strings.DEFAULT_MAIN_FUNCTION_PATH:
+				InfoDialogWindow(
+					strings.NO_MAIN_FUNCTION_TITLE,
+					strings.NO_MAIN_FOUND_AFTER_SELECTION_TEXT
+				)
+			return mainFunctionPath
 	
 	def getNamesAndEmails(self):
 		self.closeWindow()

@@ -21,9 +21,21 @@ The possible commands (or their aliases) are the following:
 See the documentation on GitHub or PyPI for more information.
 """
 
-SELECT_FOLDER_TEXT = "Select the top-level folder containing your Python project"
-
 DEFAULT_INITIAL_VERSION = "0.1.0"
+
+PROJECT_DESCRIPTION_TEXT = 'One-sentence Project Description (e.g., "Software designed for..."):'
+SELECT_FOLDER_TEXT = "Select the top-level folder containing your Python project"
+PROJECT_NAME_DESCRIPTION_TEXT = '(Your package will be installed with the "pip install \
+project_name" command using the project name given above.)'
+
+MISMATCHED_SELECTION_TEXT = "Mismatched folder name and project name.\nAre you sure you selected correctly?"
+NO_PYTHON_FILES_IN_PROJECT_FOLDER_TEXT = "No Python files found in folder.\nSelect a different folder."
+PROJECT_FOLDER_NOT_CHOSEN_TEXT = "You must select your project \nusing the Browse button."
+PROJECT_NAME_NOT_CHOSEN_TEXT = "Project Name is a required field.\nUse folder name as project name?"
+
+NO_MAIN_FUNCTION_TITLE = "Main function not found"
+MUST_SELECT_MAIN_FILE = 'No "main" function found.\nChoose a file containing\nthe main entry point function?'
+NO_MAIN_FOUND_AFTER_SELECTION_TEXT = 'The selected file does not contain\na function named "main" for your project.'
 
 UNIT_TEST_CREATION_PROMPT_TEXT = '''Create template unit test files?
 These will be placed in a "tests" folder
@@ -131,7 +143,8 @@ run the following command:
 ```
 python -m unittest
 ```
-{bugReports}"""
+{bugReports}
+"""
 
 AUTHOR_SECTION_CONTENTS = "\n## Authors\n\n{namesAndEmails}\n"
 
@@ -161,11 +174,13 @@ setup(
     python_requires='>=3.7, <4', {githubProjectUrlsLine}
     entry_points={{
         'console_scripts': [
-            '{projectName} = src.__main__:main'
+            '{projectName} = {mainFunctionPath}:main'
         ]
     }}
 )
 """
+
+DEFAULT_MAIN_FUNCTION_PATH = "src.__main__"
 
 GITHUB_URL_LINE_CONTENT = "\n    url='https://github.com/{username}/{projectName}',"
 
@@ -185,23 +200,6 @@ CLASSIFIERS_CONTENT = """
         'Operating System :: MacOS :: MacOS X',
         'Operating System :: Microsoft :: Windows'
     ],"""
-
-MISMATCHED_SELECTION_TEXT = "Mismatched folder name and project name.\nAre you sure you selected correctly?"
-
-NO_PYTHON_FILES_IN_PROJECT_FOLDER_TEXT = "No Python files found in folder.\nSelect a different folder."
-
-NO_MAIN_FUNCTION_IN_SRC_FOLDER_TEXT = 'You must have a "main" function\nin a "__main__.py" file\nin a top-level "src" folder.'
-
-PROJECT_DESCRIPTION_TEXT = 'One-sentence Project Description (e.g., "Software designed for..."):'
-
-PROJECT_FOLDER_NOT_CHOSEN_TEXT = "You must select your project \nusing the Browse button."
-
-PROJECT_NAME_NOT_CHOSEN_TEXT = "Project Name is a required field.\nUse folder name as project name?"
-
-SELECT_FOLDER_TEXT = "Select the top-level folder containing your Python project"
-
-PROJECT_NAME_DESCRIPTION_TEXT = '(Your package will be installed with the "pip install \
-project_name" command using the project name given above.)'
 
 INTENDED_AUDIENCES_LIST = [
     "N/A",

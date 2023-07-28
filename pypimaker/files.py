@@ -5,7 +5,7 @@ from pypimaker import strings
 from pypimaker.ui.DialogWindow import DialogWindow
 
 def generate(filepath, projectName, authorsArray, emailsArray, correspondingEmail, githubUsername,
-	shortDescription, classifier):
+	shortDescription, classifier, mainFunctionPath):
 	checkForUnitTests(filepath)
 	generateRequirementsFile(filepath)
 	generateGitIgnoreFile(filepath)
@@ -14,7 +14,7 @@ def generate(filepath, projectName, authorsArray, emailsArray, correspondingEmai
 		githubUsername)
 	generateInitFiles(filepath)
 	generateSetupFile(filepath, authorsArray, correspondingEmail, githubUsername, projectName, 
-		shortDescription, classifier)
+		shortDescription, classifier, mainFunctionPath)
 
 def checkForUnitTests(filepath):
 	if "tests" not in os.listdir(filepath):
@@ -192,7 +192,7 @@ def createInitFileAt(filepath):
 		openFile.write("")
 
 def generateSetupFile(filepath, authorsArray, correspondingEmail, githubUsername, projectName, 
-	shortDescription, classifier):
+	shortDescription, classifier, mainFunctionPath):
 	githubInfo = getGithubInfo(githubUsername, projectName)
 	
 	output = strings.SETUP_FILE_CONTENTS.format(
@@ -204,7 +204,8 @@ def generateSetupFile(filepath, authorsArray, correspondingEmail, githubUsername
 		authorEmailLine=getAuthorEmailLine(correspondingEmail),
 		classifiers=getClassifiers(classifier),
 		pyModules=getPyModules(filepath),
-		githubProjectUrlsLine=githubInfo[1]
+		githubProjectUrlsLine=githubInfo[1],
+		mainFunctionPath=mainFunctionPath
 	)
 	
 	with open(filepath + "/setup.py", "w") as file:
