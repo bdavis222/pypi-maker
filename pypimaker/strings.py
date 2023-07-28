@@ -1,3 +1,26 @@
+ARGS_DESCRIPTION_TEXT = "Enter command 'generate', 'upload', 'reset', or 'help'"
+
+HELP_TEXT = """
+PyPI Maker
+----------
+
+To run PyPI Maker, enter 'pypimaker' followed by a valid command.
+Some examples:
+
+   pypimaker generate
+   pypimaker upload
+   pypimaker -r
+
+The possible commands (or their aliases) are the following:
+
+   generate  (-g)
+   upload    (-u)
+   reset     (-r)
+   help      (-h)
+
+See the documentation on GitHub or PyPI for more information.
+"""
+
 DEFAULT_INITIAL_VERSION = "0.1.0"
 
 UNIT_TEST_CREATION_PROMPT_TEXT = '''Create template unit test files?

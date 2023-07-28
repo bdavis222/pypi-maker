@@ -1,36 +1,18 @@
 import argparse
 import sys
+from pypimaker import strings
 import pypimaker.files as files
 import pypimaker.reset as reset
 import pypimaker.upload as upload
 from pypimaker.ui import navigation
 from pypimaker.ui.OptionSelector import OptionSelector
 
-INVALID_ARGUMENT_TEXT = "Invalid argument given. Must be 'generate', 'upload', 'reset', \
-'fiximports', 'unfiximports', or 'help'."
-
-ARGS_DESCRIPTION_TEXT = "Enter command 'generate', 'upload', 'reset', 'fiximports', \
-'unfiximports', or 'help'"
-
-HELP_TEXT = "\nPyPI Maker\n----------\n\n\
-To run PyPI Maker, enter 'pypimaker' followed by a valid command.\n\
-Some examples:\n\n\
-   pypimaker generate\n\
-   pypimaker upload\n\
-   pypimaker -r\
-\n\nThe possible commands (or their aliases) are the following:\n\n\
-   generate  (-g)\n\
-   upload    (-u)\n\
-   reset     (-r)\n\
-   help      (-h)\n\n\
-See the documentation on GitHub or PyPI for more information.\n"
-
 def main(argv=sys.argv):
 	parser = argparse.ArgumentParser(description="Example input: pypimaker generate")
 	parser.add_argument(
 		"command", 
 		type=str, 
-		help=ARGS_DESCRIPTION_TEXT, 
+		help=strings.ARGS_DESCRIPTION_TEXT, 
 		nargs=1
 	)
 	userOption = "help" if len(sys.argv) == 1 else sys.argv[1]
@@ -57,10 +39,10 @@ def main(argv=sys.argv):
 		reset.reset(filepath)
 	
 	elif userOption in ["help", "-h"]:
-		print(HELP_TEXT)
+		print(strings.HELP_TEXT)
 	
 	else:
-		print(HELP_TEXT)
+		print(strings.HELP_TEXT)
 
 if __name__ == '__main__':
 	main()
