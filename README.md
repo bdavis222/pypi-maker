@@ -91,4 +91,4 @@ The same test framework can optionally be added to your own project: If there is
 
 ### Bug Reports and Feature Requests
 
-To report a bug, visit the [issues page](https://github.com/bdavis222/project_template/issues). New feature requests are also welcome!
+To report a bug, visit the [issues page](https://github.com/bdavis222/pypimaker/issues). New feature requests are also welcome!
