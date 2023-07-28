@@ -108,16 +108,29 @@ class OptionSelector:
 			InfoDialogWindow("Missing info", strings.PROJECT_FOLDER_NOT_CHOSEN_TEXT)
 			return
 		
+		if not navigation.hasMainFunctionInSrc(self.filepath):
+			InfoDialogWindow(
+				"Invalid project structure",
+				strings.NO_MAIN_FUNCTION_IN_SRC_FOLDER_TEXT
+			)
+			return
+		
 		self.projectName = self.entryProjectName.get()
 		if self.projectName == "":
-			ActionDialogWindow("Missing info", strings.PROJECT_NAME_NOT_CHOSEN_TEXT, 
-				positiveAction=self.finishWithFolderNameAsProjectName)
+			ActionDialogWindow(
+				"Missing info",
+				strings.PROJECT_NAME_NOT_CHOSEN_TEXT,
+				positiveAction=self.finishWithFolderNameAsProjectName
+			)
 			return
 		
 		chosenFolder = self.filepath.split("/")[-1]
 		if chosenFolder != self.projectName:
-			ActionDialogWindow("Check your selection", strings.MISMATCHED_SELECTION_TEXT, 
-				positiveAction=self.done)
+			ActionDialogWindow(
+				"Check your selection",
+				strings.MISMATCHED_SELECTION_TEXT,
+				positiveAction=self.done
+			)
 			return
 		
 		self.done()

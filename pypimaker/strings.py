@@ -21,6 +21,8 @@ The possible commands (or their aliases) are the following:
 See the documentation on GitHub or PyPI for more information.
 """
 
+SELECT_FOLDER_TEXT = "Select the top-level folder containing your Python project"
+
 DEFAULT_INITIAL_VERSION = "0.1.0"
 
 UNIT_TEST_CREATION_PROMPT_TEXT = '''Create template unit test files?
@@ -187,6 +189,8 @@ CLASSIFIERS_CONTENT = """
 MISMATCHED_SELECTION_TEXT = "Mismatched folder name and project name.\nAre you sure you selected correctly?"
 
 NO_PYTHON_FILES_IN_PROJECT_FOLDER_TEXT = "No Python files found in folder.\nSelect a different folder."
+
+NO_MAIN_FUNCTION_IN_SRC_FOLDER_TEXT = 'You must have a "main" function\nin a "__main__.py" file\nin a top-level "src" folder.'
 
 PROJECT_DESCRIPTION_TEXT = 'One-sentence Project Description (e.g., "Software designed for..."):'
 
