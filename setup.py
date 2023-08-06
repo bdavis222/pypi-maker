@@ -33,5 +33,5 @@ setup(
         'console_scripts': [
             'pypimaker = pypimaker.__main__:main'
         ]
-        }
+    }
 )
