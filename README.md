@@ -1,4 +1,5 @@
 # PyPI Maker
+
 > Software designed for simplifying PyPI Python package setups
 
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/donate/?business=UA5NL9MJSFMVY)
@@ -17,7 +18,7 @@ To install pypimaker, open a terminal window and run the following command:
 pip install pypimaker
 ```
 
-*(Note that the* `pip3` *command may be required instead of* `pip` *for some Python installations.)*
+_(Note that the_ `pip3` _command may be required instead of_ `pip` _for some Python installations.)_
 
 ## Generating Your PyPI Files
 
@@ -46,7 +47,7 @@ You will be asked to enter your PyPI username and password (which you've registe
 pip install <PROJECT_NAME>
 ```
 
-*(Here, <PROJECT_NAME> is the name you selected when running `pypimaker generate`)*
+_(Here, <PROJECT_NAME> is the name you selected when running `pypimaker generate`)_
 
 ## Resetting Your Project
 
@@ -60,7 +61,7 @@ pypimaker reset
 
 To make changes and update your project, simply re-run `pypimaker upload`. Follow the steps in the terminal to incremement your version number and your update will be pushed to PyPI.
 
-*Note: the extraneous `+[CATransaction synchronize]` output in the terminal window is a known bug in macOS 13 that will not affect your project.*
+_Note: the extraneous `+[CATransaction synchronize]` output in the terminal window is a known bug in macOS 13 that will not affect your project._
 
 ## Authors
 
@@ -68,10 +69,8 @@ Brian Davis
 
 ## Release History
 
-* 0.1.11
-     * Bug fixes
-* 0.1.0
-     * Initial Release
+- 1.0.0
+  - Initial Release
 
 ## License
 
