@@ -70,7 +70,7 @@ Brian Davis
 
 ## Release History
 
-- 1.0.3
+- 1.0.4
   - Bug fixes
 - 1.0.0
   - Initial Release
