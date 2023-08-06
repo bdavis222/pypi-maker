@@ -55,7 +55,7 @@ TEST_FILE_CONTENTS = '''import unittest
 # This unit test uses Python's built-in unit testing framework
 # See https://docs.python.org/3/library/unittest.html for more information
 
-class {moduleName}Test(unittest.TestCase):
+class {camelName}Test(unittest.TestCase):
     def test_condition_doesThis_whenThis(self):
         pass
 

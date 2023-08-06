@@ -77,9 +77,11 @@ def createTestFiles(filepath, newPaths, importStrings):
     startingIndex = len(filepath.split("/"))
     for path, importString in zip(newPaths, importStrings):
         directory = "/".join(path.split("/")[:-1])
+        filename = path.split("/")[-1].split(".")[0]
+        camelArray = [word.capitalize() for word in filename.split("_")]
         contents = strings.TEST_FILE_CONTENTS.format(
             importString=importString,
-            moduleName=path.split("/")[-1].split(".")[0].capitalize()
+            camelName="".join(camelArray)
         )
 
         subprocess.call(["mkdir", "-p", directory])

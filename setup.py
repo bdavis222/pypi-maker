@@ -22,16 +22,16 @@ setup(
             'Operating System :: Microsoft :: Windows'
         ],
     packages=find_packages(),  # Required
-    py_modules=['src', 'src.ui', 'tests'],  # Generated
+    py_modules=['pypimaker', 'pypimaker.ui', 'tests'],  # Generated
     python_requires='>=3.7, <4',
     project_urls={
         'Bug Reports': 'https://github.com/bdavis222/pypimaker/issues',
         'Funding': 'https://www.paypal.com/donate/?business=UA5NL9MJSFMVY',
         'Source': 'https://github.com/bdavis222/',
-    },
+        },
     entry_points={
         'console_scripts': [
-            'pypimaker = src.__main__:main'
+            'pypimaker = pypimaker.__main__:main'
         ]
-    }
+        }
 )
