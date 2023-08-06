@@ -29,6 +29,7 @@ pypimaker generate
 ```
 
 This will launch a graphical user interface that looks like the following:
+
 ![](https://github.com/bdavis222/pypimaker/blob/main/images/0.png)
 
 Inputting the information for your project will generate all of the files needed for uploading it to PyPI (`LICENSE`, `README.me`, `requirements.txt`, and `setup.py`). This can be re-run at any time to re-generate these files.
