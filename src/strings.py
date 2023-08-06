@@ -18,7 +18,8 @@ The possible commands (or their aliases) are the following:
    reset     (-r)
    help      (-h)
 
-See the documentation on GitHub (github.com/bdavis222/pypimaker) for more information.
+See the documentation on GitHub for more information:
+https://github.com/bdavis222/pypimaker
 """
 
 DEFAULT_INITIAL_VERSION = "0.1.0"
