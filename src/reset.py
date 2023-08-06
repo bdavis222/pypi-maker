@@ -1,13 +1,12 @@
 import os
 import subprocess
 
+from src import strings
 from src.ui.DialogWindow import ActionDialogWindow
-
-RESET_SELECTION_TEXT = "This will remove generated files.\nAre you sure you want to reset?"
 
 
 def reset(topLevelDirectory):
-    ActionDialogWindow("Are you sure?", RESET_SELECTION_TEXT,
+    ActionDialogWindow("Are you sure?", strings.RESET_SELECTION_TEXT,
                        negativeAction=exit, mainWindow=True)
 
     filesToRemove = ["LICENSE", "README.md",

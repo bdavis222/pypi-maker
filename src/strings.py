@@ -18,7 +18,7 @@ The possible commands (or their aliases) are the following:
    reset     (-r)
    help      (-h)
 
-See the documentation on GitHub or PyPI for more information.
+See the documentation on GitHub (github.com/bdavis222/pypimaker) for more information.
 """
 
 DEFAULT_INITIAL_VERSION = "0.1.0"
@@ -36,6 +36,13 @@ PROJECT_NAME_NOT_CHOSEN_TEXT = "Project Name is a required field.\nUse folder na
 NO_MAIN_FUNCTION_TITLE = "Main function not found"
 MUST_SELECT_MAIN_FILE = 'No "main" function found.\nChoose a file containing\nthe main entry point function?'
 NO_MAIN_FOUND_AFTER_SELECTION_TEXT = 'The selected file does not contain\na function named "main" for your project.'
+
+MISSING_AUTHOR_NAMES_TEXT = "Some emails have missing author names.\nPlease fix and resubmit."
+MISSING_FIRST_NAME_TEXT = "Corresponding author name not given.\nSubmit with no authors?"
+MISSING_FIRST_AUTHOR_EMAIL_TEXT = "Email given for other(s), but not first author.\n\
+Use next email in list for correspondence?"
+
+RESET_SELECTION_TEXT = "This will remove generated files.\nAre you sure you want to reset?"
 
 UNIT_TEST_CREATION_PROMPT_TEXT = '''Create template unit test files?
 These will be placed in a "tests" folder

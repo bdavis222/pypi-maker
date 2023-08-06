@@ -6,6 +6,8 @@ import src.ui.navigation as navigation
 from src.ui.AuthorInfoSelector import AuthorInfoSelector
 from src.ui.DialogWindow import ActionDialogWindow, DialogWindow, InfoDialogWindow
 
+EMPTY_DIRECTORY_SET = set(["", " ", "/"])
+
 
 class OptionSelector:
     def __init__(self):
@@ -97,7 +99,7 @@ class OptionSelector:
             initialdir=self.filepath,
             title=strings.SELECT_FOLDER_TEXT
         )
-        if chosenFolder not in ["", " ", "/"]:
+        if chosenFolder not in EMPTY_DIRECTORY_SET:
             if not navigation.hasPyFiles(chosenFolder):
                 InfoDialogWindow(
                     "No Python files found",
@@ -111,7 +113,7 @@ class OptionSelector:
         self.window.focus_force()
 
     def checkDone(self):
-        if self.filepath in ["", " ", "/"]:
+        if self.filepath in EMPTY_DIRECTORY_SET:
             InfoDialogWindow(
                 "Missing info", strings.PROJECT_FOLDER_NOT_CHOSEN_TEXT)
             return
@@ -203,7 +205,7 @@ class OptionSelector:
         self.correspondingEmail = authorInfoSelector.correspondingEmail
 
     def showFilepath(self):
-        if self.filepath in ["", " ", "/"]:
+        if self.filepath in EMPTY_DIRECTORY_SET:
             self.labelSelectedPath.configure(
                 text=strings.SELECT_FOLDER_TEXT, fg="red", bg="white")
         else:

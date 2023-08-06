@@ -1,11 +1,7 @@
 import tkinter as tk
 
+from src import strings
 from src.ui.DialogWindow import ActionDialogWindow, InfoDialogWindow
-
-MISSING_AUTHOR_NAMES_TEXT = "Some emails have missing author names.\nPlease fix and resubmit."
-MISSING_FIRST_NAME_TEXT = "Corresponding author name not given.\nSubmit with no authors?"
-MISSING_FIRST_AUTHOR_EMAIL_TEXT = "Email given for other(s), but not first author.\n\
-Use next email in list for correspondence?"
 
 
 class AuthorInfoSelector:
@@ -138,21 +134,21 @@ class AuthorInfoSelector:
                 noEmailsEntered = False
                 if name == "":
                     InfoDialogWindow(
-                        "Invalid entry", MISSING_AUTHOR_NAMES_TEXT)
+                        "Invalid entry", strings.MISSING_AUTHOR_NAMES_TEXT)
                     return
 
         if names[0] == "":
-            ActionDialogWindow("Invalid entry", MISSING_FIRST_NAME_TEXT,
+            ActionDialogWindow("Invalid entry", strings.MISSING_FIRST_NAME_TEXT,
                                positiveAction=self.doneWithNoAuthors)
             return
 
         if emails[0] == "" and not noEmailsEntered:
             ActionDialogWindow(
-                "Invalid entry", MISSING_FIRST_AUTHOR_EMAIL_TEXT)
+                "Invalid entry", strings.MISSING_FIRST_AUTHOR_EMAIL_TEXT)
 
         self.done(names, emails)
 
-    def checkDoneWithReturnKey(self, event):
+    def checkDoneWithReturnKey(self, _):
         self.checkDone()
 
     def done(self, names, emails):

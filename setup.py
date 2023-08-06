@@ -7,7 +7,7 @@ long_description = (here / 'README.md').read_text(encoding='utf-8')
 
 setup(
     name='pypimaker',  # Required
-    version='1.0.0',  # Required
+    version='1.0.1',  # Required
     description='Software designed for simplifying PyPI Python package setups',
     long_description=long_description,
     long_description_content_type='text/markdown',
@@ -28,10 +28,10 @@ setup(
         'Bug Reports': 'https://github.com/bdavis222/pypimaker/issues',
         'Funding': 'https://www.paypal.com/donate/?business=UA5NL9MJSFMVY',
         'Source': 'https://github.com/bdavis222/',
-            },
+    },
     entry_points={
         'console_scripts': [
             'pypimaker = src.__main__:main'
         ]
-    }
+        }
 )

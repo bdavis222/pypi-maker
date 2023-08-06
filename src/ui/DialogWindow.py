@@ -3,8 +3,8 @@ import tkinter as tk
 
 class DialogWindow:
     def __init__(self, title, message, positiveButtonText, negativeButtonText,
-                 positiveButtonAction=None, negativeButtonAction=None, windowWidth=300, windowHeight=140,
-                 positiveButtonColor="blue", negativeButtonColor="black",
+                 positiveButtonAction=None, negativeButtonAction=None, windowWidth=300,
+                 windowHeight=140, positiveButtonColor="blue", negativeButtonColor="black",
                  mainWindow=False):
         self.window = tk.Tk()
         self.window.title(title)
@@ -23,8 +23,9 @@ class DialogWindow:
         buttonsFrame = tk.Frame(self.window)
 
         if positiveButtonAction is None:
-            positiveButton = tk.Button(self.window, text=positiveButtonText,
-                                       fg=positiveButtonColor, command=self.closeWindow)
+            positiveButton = tk.Button(
+                self.window, text=positiveButtonText, fg=positiveButtonColor,
+                command=self.closeWindow)
             self.window.bind("<Return>", self.closeWindowWithReturnKey)
         else:
             positiveButton = tk.Button(self.window, text=positiveButtonText,
@@ -33,8 +34,9 @@ class DialogWindow:
                 "<Return>", self.performPositiveActionWithReturnKey)
 
         if negativeButtonAction is None:
-            negativeButton = tk.Button(self.window, text=negativeButtonText,
-                                       fg=negativeButtonColor, command=self.closeWindow)
+            negativeButton = tk.Button(
+                self.window, text=negativeButtonText, fg=negativeButtonColor,
+                command=self.closeWindow)
             self.window.bind("<Escape>", self.closeWindowWithEscapeKey)
         else:
             negativeButton = tk.Button(self.window, text=negativeButtonText,
@@ -60,17 +62,17 @@ class DialogWindow:
         self.window.destroy()
         self.window.quit()
 
-    def closeWindowWithEscapeKey(self, event):
+    def closeWindowWithEscapeKey(self, _):
         self.closeWindow()
 
-    def closeWindowWithReturnKey(self, event):
+    def closeWindowWithReturnKey(self, _):
         self.closeWindow()
 
     def performPositiveAction(self):
         self.closeWindow()
         self.positiveButtonAction()
 
-    def performPositiveActionWithReturnKey(self, event):
+    def performPositiveActionWithReturnKey(self, _):
         self.closeWindow()
         self.positiveButtonAction()
 
@@ -78,7 +80,7 @@ class DialogWindow:
         self.closeWindow()
         self.negativeButtonAction()
 
-    def performNegativeActionWithEscapeKey(self, event):
+    def performNegativeActionWithEscapeKey(self, _):
         self.closeWindow()
         self.negativeButtonAction()
 
