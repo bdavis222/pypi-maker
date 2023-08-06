@@ -172,13 +172,13 @@ here = pathlib.Path(__file__).parent.resolve()
 long_description = (here / 'README.md').read_text(encoding='utf-8')
 
 setup(
-    name='{projectName}', # Required
-    version='{version}', # Required {descriptionLine}
+    name='{projectName}',  # Required
+    version='{version}',  # Required {descriptionLine}
     long_description=long_description,
     long_description_content_type='text/markdown',\
 {githubUrlLine}{authorNameLine}{authorEmailLine}{classifiers}
-    packages=find_packages(), # Required
-    py_modules={pyModules}, # Generated
+    packages=find_packages(),  # Required
+    py_modules={pyModules},  # Generated
     python_requires='>=3.7, <4', {githubProjectUrlsLine}
     entry_points={{
         'console_scripts': [

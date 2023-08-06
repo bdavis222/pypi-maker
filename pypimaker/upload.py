@@ -190,7 +190,7 @@ def setNewSetupFileVersion(filepath, newVersionNumber):
     if not versionNumberFound:
         raise Exception("No version number found in setup.py")
 
-    data[versionIndex] = f"    version='{newVersionNumber}', # Required \n"
+    data[versionIndex] = f"    version='{newVersionNumber}',  # Required\n"
 
     with open(filepath + "/setup.py", "w") as file:
         file.writelines(data)
