@@ -1,7 +1,7 @@
 import unittest
 
-from src import strings
-import src.ui.navigation as navigation
+from pypimaker import strings
+import pypimaker.ui.navigation as navigation
 
 # This unit test uses Python's built-in unit testing framework
 # See https://docs.python.org/3/library/unittest.html for more information

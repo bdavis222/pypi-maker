@@ -2,7 +2,7 @@ import os
 import subprocess
 import time
 
-from src import strings
+from pypimaker import strings
 
 
 def upload(filepath):

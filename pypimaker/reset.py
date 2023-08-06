@@ -1,8 +1,8 @@
 import os
 import subprocess
 
-from src import strings
-from src.ui.DialogWindow import ActionDialogWindow
+from pypimaker import strings
+from pypimaker.ui.DialogWindow import ActionDialogWindow
 
 
 def reset(topLevelDirectory):

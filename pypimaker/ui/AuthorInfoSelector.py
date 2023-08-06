@@ -1,7 +1,7 @@
 import tkinter as tk
 
-from src import strings
-from src.ui.DialogWindow import ActionDialogWindow, InfoDialogWindow
+from pypimaker import strings
+from pypimaker.ui.DialogWindow import ActionDialogWindow, InfoDialogWindow
 
 
 class AuthorInfoSelector:

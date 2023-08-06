@@ -1,10 +1,10 @@
 import tkinter as tk
 from tkinter import filedialog
 
-from src import strings
-import src.ui.navigation as navigation
-from src.ui.AuthorInfoSelector import AuthorInfoSelector
-from src.ui.DialogWindow import ActionDialogWindow, DialogWindow, InfoDialogWindow
+from pypimaker import strings
+import pypimaker.ui.navigation as navigation
+from pypimaker.ui.AuthorInfoSelector import AuthorInfoSelector
+from pypimaker.ui.DialogWindow import ActionDialogWindow, DialogWindow, InfoDialogWindow
 
 EMPTY_DIRECTORY_SET = set(["", " ", "/"])
 

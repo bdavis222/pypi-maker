@@ -2,8 +2,8 @@ import datetime
 import os
 import subprocess
 
-from src import strings
-from src.ui.DialogWindow import DialogWindow
+from pypimaker import strings
+from pypimaker.ui.DialogWindow import DialogWindow
 
 
 def generate(filepath, projectName, authorsArray, emailsArray, correspondingEmail, githubUsername,

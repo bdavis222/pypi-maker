@@ -2,7 +2,7 @@ import os
 import tkinter as tk
 from tkinter import filedialog
 
-from src import strings
+from pypimaker import strings
 
 
 def getDirectory():

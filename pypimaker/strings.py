@@ -136,7 +136,7 @@ To contribute, download or clone the project. From the top level of the project'
 one can use the following command to run a local version of the software (e.g., for UI testing):
 
 ```
-python -m src
+python -m pypimaker
 ```
 
 *(Note that the* `python3` *command may be required instead of* `python` *for some Python installations.)*
