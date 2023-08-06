@@ -31,6 +31,11 @@ class NavigationTest(unittest.TestCase):
         )
         self.assertEqual(
             navigation.getPathFromBase(
+                base="path/to/base", target="path/to/base/to/deep/target.py"),
+            "to.deep.target"
+        )
+        self.assertEqual(
+            navigation.getPathFromBase(
                 base="path/to/base", target="path/to/base/to/__target__.py"),
             "to.__target__"
         )
