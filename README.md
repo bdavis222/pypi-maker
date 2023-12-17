@@ -62,7 +62,7 @@ pypimaker reset
 
 To make changes and update your project, simply re-run `pypimaker upload`. Follow the steps in the terminal to incremement your version number and your update will be pushed to PyPI.
 
-_Note: the extraneous `+[CATransaction synchronize]` output in the terminal window is a [known bug](https://developer.apple.com/forums/thread/722889) in macOS 13 that will not affect your project._
+_Note: the extraneous `+[CATransaction synchronize]` output in the terminal window is a [known bug](https://developer.apple.com/forums/thread/722889) in macOS that will not affect your project._
 
 ## Authors
 
