@@ -176,7 +176,9 @@ setup(
     version='{version}',  # Required {descriptionLine}
     long_description=long_description,
     long_description_content_type='text/markdown',\
-{githubUrlLine}{authorNameLine}{authorEmailLine}{classifiers}
+{githubUrlLine}{authorNameLine}{authorEmailLine}
+    license='MIT',\
+{classifiers}
     packages=find_packages(),  # Required
     py_modules={pyModules},  # Generated
     python_requires='>=3.7, <4', {githubProjectUrlsLine}
@@ -200,7 +202,7 @@ GITHUB_PROJECT_URLS_LINE_CONTENT = """
     }},"""
 
 CLASSIFIERS_CONTENT = """
-    classifiers=[ # Defined at https://pypi.org/classifiers/
+    classifiers=[  # Defined at https://pypi.org/classifiers/
         'Intended Audience :: {classifier}',
         'License :: OSI Approved :: MIT License',
         'Programming Language :: Python :: 3',
